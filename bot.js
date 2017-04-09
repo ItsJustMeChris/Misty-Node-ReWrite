@@ -26,6 +26,8 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (msg.guild)
     {
+		console.log("<" + msg.author.username + ">" + ": " + msg.content)
+
         if (msg.guild.roles.find("name", "Developer").members.find("user", msg.author))
         {
             var isDeveloper = msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id;
