@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const key = "Your Key";
+const key = "Your API Key";
 
 //Require Modules
 const antiswear = require("./modules/antiswear.js");
@@ -8,6 +8,8 @@ const antiswear = require("./modules/antiswear.js");
 //Prepare modules
 var modules = {
     [antiswear.id] : {"status":function() { return antiswear.status() }, "toggle":function() { antiswear.toggle(); console.log("Toggle called") } },
+    //[Module.id] : {"status":function() { return module.status() }, "toggle":function() { module.toggle(); console.log("Toggle called") } },
+
 }
 
 
@@ -24,7 +26,7 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (msg.guild)
     {
-        if (msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id)
+        if (msg.guild.roles.find("name", "Developer").members.find("user", msg.author))
         {
             var isDeveloper = msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id;
         }
@@ -58,6 +60,7 @@ client.on('message', msg => {
         
         if (word[0] === "!classes")
         {
+            msg.delete()
             //Death Knight
             msg.author.sendEmbed({
                 hexColor:"#C41F3B",

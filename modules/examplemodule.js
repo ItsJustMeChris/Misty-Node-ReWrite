@@ -1,13 +1,14 @@
-const key = "Your API Key";
+//Welcome to the example module
+const key = "discordapikey";
 
 var status = true;
 var statusWord = "on";
 //Module Name
-const name = "Anti Swear";
+const name = "Your Module Name";
 //Module identifier
-const id = "antiswear";
+const id = "lowercaseandonewordistheidentifier";
 //Module Description
-const desc = "Prevents users from swaring or using words we don't like.";
+const desc = "Your module description.";
 
 //Toggle this module
 
@@ -34,7 +35,6 @@ exports.toggle = function()
 
 //Initialize our module
 exports.initialize = function() {
-    const swears = require('./swears.js');
     const Discord = require("discord.js");
     const client = new Discord.Client();
     
@@ -56,9 +56,9 @@ exports.initialize = function() {
             
             for (i = 0; i < word.length; i++)
             {
-                if (swears.list[word[i]])
+                if (msg[0] === "ping")
                 {
-                    msg.reply("That's a bad word >:(")
+                    msg.reply("pong");
                 }
             }
         });
