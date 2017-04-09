@@ -1,5 +1,5 @@
 //Welcome to the example module
-const key = "discordapikey";
+const key = "your_api_key";
 
 var status = true;
 var statusWord = "on";

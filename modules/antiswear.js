@@ -1,4 +1,4 @@
-const key = "Your_API_Key";
+const key = "your_api_key";
 
 var status = true;
 var statusWord = "on";
@@ -34,7 +34,7 @@ exports.toggle = function()
 
 //Initialize our module
 exports.initialize = function() {
-    const swears = require('./swears.js');
+    const swears = require('./swears/swears.js');
     const Discord = require("discord.js");
     const client = new Discord.Client();
     
@@ -51,17 +51,20 @@ exports.initialize = function() {
         });
         
         client.on('message', msg => {
-            var string = msg.content;
-            var word = string.split(" ");
-            var lower = string.toLowerCase();
-            for (i = 0; i < 554; i++)
+            if (msg.guild)
             {
-                if (status && lower.search(swears.list[i]) >= 0)
+                var string = msg.content;
+                var word = string.split(" ");
+                var lower = string.toLowerCase();
+                for (i = 0; i < 554; i++)
                 {
-                    msg.delete();
-                    msg.reply("That's a bad word >:(");
-                    console.log("I DETECTED A FUCKING SWEAR SHIT!")
-                    break;
+                    if (status && lower.search(swears.list[i]) >= 0)
+                    {
+                        msg.delete();
+                        msg.reply("That's a bad word >:(");
+                        console.log("I DETECTED A FUCKING SWEAR SHIT!")
+                        break;
+                    }
                 }
             }
         });
