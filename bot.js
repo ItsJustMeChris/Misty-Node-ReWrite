@@ -24,7 +24,10 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (msg.guild)
     {
-        var isDeveloper = msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id;
+        if (msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id)
+        {
+            var isDeveloper = msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id;
+        }
         var string = msg.content;
         var word = string.split(" ");
 	       if (word[0] === '!misty') {
