@@ -12,3 +12,6 @@ Edit your discord API key here:
 ```javascript
 const key = "your_api_key";
 ```
+
+
+* I have never used JavaScript before so this is more of an experiement/challenge for my knowledge.
