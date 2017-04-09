@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const key = "Your API Key";
+const key = "Your_API_Key";
 
 //Require Modules
 const antiswear = require("./modules/antiswear.js");
@@ -26,8 +26,7 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (msg.guild)
     {
-		console.log("<" + msg.author.username + ">" + ": " + msg.content)
-
+        console.log("<" + msg.author.username + ">" + ": " + msg.content)
         if (msg.guild.roles.find("name", "Developer").members.find("user", msg.author))
         {
             var isDeveloper = msg.guild.roles.find("name", "Developer").members.find("user", msg.author).id;

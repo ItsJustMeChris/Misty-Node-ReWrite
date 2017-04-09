@@ -1,4 +1,4 @@
-const key = "Your API Key";
+const key = "Your_API_Key";
 
 var status = true;
 var statusWord = "on";
@@ -53,12 +53,15 @@ exports.initialize = function() {
         client.on('message', msg => {
             var string = msg.content;
             var word = string.split(" ");
-            
-            for (i = 0; i < word.length; i++)
+            var lower = string.toLowerCase();
+            for (i = 0; i < 554; i++)
             {
-                if (swears.list[word[i]])
+                if (status && lower.search(swears.list[i]) >= 0)
                 {
-                    msg.reply("That's a bad word >:(")
+                    msg.delete();
+                    msg.reply("That's a bad word >:(");
+                    console.log("I DETECTED A FUCKING SWEAR SHIT!")
+                    break;
                 }
             }
         });
