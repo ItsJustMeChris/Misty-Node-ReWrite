@@ -284,7 +284,6 @@ exports.list=[
     "goddamned",
     "hamflap",
     "hardcoresex",
-    "hell",
     "heshe",
     "hoar",
     "hoare",

@@ -56,13 +56,15 @@ exports.initialize = function() {
                 var string = msg.content;
                 var word = string.split(" ");
                 var lower = string.toLowerCase();
+                console.log(lower);
+                console.log(string);
+                console.log(msg.content);
                 for (i = 0; i < 554; i++)
                 {
-                    if (status && lower.search(swears.list[i]) >= 0)
+                    if (status && lower.indexOf(swears.list[i]) >= 0)
                     {
+                        console.log(i);
                         msg.delete();
-                        msg.reply("That's a bad word >:(");
-                        console.log("I DETECTED A FUCKING SWEAR SHIT!")
                         break;
                     }
                 }
